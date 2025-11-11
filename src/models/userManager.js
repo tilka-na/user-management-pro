@@ -7,15 +7,15 @@ export class userManager {
  constructor() { this.#loadFromStorage(); }
  async addUser(data){
    try{
-     const user =new user({
+     const userInstance =new user({
         id: this.#nextId++,
         name: data.name,
         email: data.email,
         age: data.age
      });
-     this.#users.push(user);
+     this.#users.push(userInstance);
      await this.#save();
-     return user;
+     return userInstance;
    }catch(err){
      if(err instanceof ValidationError) throw err;
        throw new ValidationError('Failed to add user');
@@ -57,13 +57,14 @@ export class userManager {
  #loadFromStorage(){
   const data =storage.get('users');
   if (data && Array.isArray(data)){
-   this.#users=data.map(obj=>new User(obj));
+   this.#users=data.map(obj=>new user(obj));
    this.#nextId=this.#users.length 
    ? Math.max(...this.#users.map(u => u.id)) + 1
       : 1;
     }
   }// → reads from localStorage
  }
+
 
 
 
