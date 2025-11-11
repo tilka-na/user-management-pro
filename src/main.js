@@ -23,7 +23,8 @@ async function initapp(){
   }
   ui.render();
 }
-initApp();
+initapp();
+
 
 
 
