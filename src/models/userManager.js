@@ -7,7 +7,7 @@ export class userManager {
  constructor() { this.#loadFromStorage(); }
  async addUser(data){
    try{
-     const user =new User({
+     const user =new user({
         id: this.#nextId++,
         name: data.name,
         email: data.email,
@@ -64,6 +64,7 @@ export class userManager {
     }
   }// → reads from localStorage
  }
+
 
 
 
