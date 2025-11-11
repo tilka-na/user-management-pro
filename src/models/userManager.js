@@ -18,7 +18,7 @@ export class userManager {
      return user;
    }catch(err){
      if(err instanceof ValidationError) throw err;
-       throw  new AppError('Failed to add user');
+       throw new ValidationError('Failed to add user');
    }
  }//→ returns new User
  getUser(id){
@@ -34,7 +34,7 @@ export class userManager {
    return user;
  }catch(err){
      if(err instanceof ValidationError) throw err;
-       throw  new AppError('Failed to add user');
+       throw new ValidationError('Failed to add user');
   }
   }
  async deleteUser(id){
@@ -45,7 +45,7 @@ export class userManager {
    await this.#save();
  }catch(err){
      if(err instanceof ValidationError) throw err;
-       throw  new AppError('Failed to add user');
+       throw new ValidationError('Failed to add user');
  }
  }
  getAll(){
@@ -64,5 +64,6 @@ export class userManager {
     }
   }// → reads from localStorage
  }
+
 
 
