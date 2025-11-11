@@ -31,8 +31,8 @@ export class User{
             age: this.#age
         };
     }
-    get id { return this.#id;}
-    get name { return this.#name;}
-    get email { return this.#email;}
-    get age { return this.#age;}
+    get id() { return this.#id;}
+    get name() { return this.#name;}
+    get email() { return this.#email;}
+    get age() { return this.#age;}
 }
