@@ -8,7 +8,7 @@ async function initapp(){
   const ui=new UIManager(userManage);
   if(userManage.getAll().length===0){
     try{
-      const data =await api.get('../data.json');
+      const data =await api.get('./data.json');
       if(data && Array.isArray(data.users)){
         for(const user of data.users){
           await userManage.addUser(user);
@@ -24,6 +24,7 @@ async function initapp(){
   ui.render();
 }
 initapp();
+
 
 
 
