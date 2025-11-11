@@ -1,11 +1,10 @@
-import{User} from './User.js';
+import{user} from './user.js';
 import{storage} from '../services/storage.js';
 import {ValidationError,NotFoundError} from '../utils/error.js';
-export class UserManager {
+export class userManager {
  #users = [];
  #nextId = 1;
  constructor() { this.#loadFromStorage(); }
- }
  async addUser(data){
    try{
      const user =new User({
@@ -36,7 +35,8 @@ export class UserManager {
  }catch(err){
      if(err instanceof ValidationError) throw err;
        throw  new AppError('Failed to add user');
- }
+  }
+  }
  async deleteUser(id){
   try{
    const index=this.#users.findIndex(u=>u.id===Number(id));
@@ -59,5 +59,7 @@ export class UserManager {
   if (data && Array.isArray(data)){
    this.#users=data.map(obj=>new User(obj));
    this.#nextID=this.#users.length ? Math.max(...this.#users.map(u=>u.id))
- }// → reads from localStorage
+    }
+  }// → reads from localStorage
+ }
 
