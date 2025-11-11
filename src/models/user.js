@@ -1,5 +1,5 @@
 import {ValidationError} from '../utils/error.js'
-export class User{
+export class user{
     #id;
     #name;
     #email;
