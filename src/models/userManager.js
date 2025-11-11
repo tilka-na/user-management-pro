@@ -51,15 +51,18 @@ export class userManager {
  getAll(){
    return [...this.#users];
  }// → returns shallow copy of users array
- #save(){
+ async #save(){
    await storage.set('users',this.#users.map(u=>u.toJSON()))
  } //→ writes to localStorage
  #loadFromStorage(){
   const data =storage.get('users');
   if (data && Array.isArray(data)){
    this.#users=data.map(obj=>new User(obj));
-   this.#nextID=this.#users.length ? Math.max(...this.#users.map(u=>u.id))
+   this.#nextId=this.#users.length 
+   ? Math.max(...this.#users.map(u => u.id)) + 1
+      : 1;
     }
   }// → reads from localStorage
  }
+
 
