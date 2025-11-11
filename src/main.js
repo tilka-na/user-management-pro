@@ -4,14 +4,14 @@ import {UIManager} from './ui/UIManager.js';
 import {Toast} from './ui/Toast.js';
 import {NetworkError} from './utils/error.js';
 async function initapp(){
-  const userManager=new userManager();
-  const ui=new UIManager(userManager);
-  if(userManager.getAll().length===0){
+  const userManage=new userManager();
+  const ui=new UIManager(userManage);
+  if(userManage.getAll().length===0){
     try{
       const data =await api.get('../data.json');
       if(data && Array.isArray(data.users)){
         for(const user of data.users){
-          await userManager.addUser(user);
+          await userManage.addUser(user);
         }
         Toast.info('Initial users loaded');
       }
@@ -24,6 +24,7 @@ async function initapp(){
   ui.render();
 }
 initapp();
+
 
 
 
