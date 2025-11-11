@@ -1,8 +1,8 @@
-import {api} form './services/api.js';
-import {userManager} form './models/userManager.js';
-import {UIManager} form './ui/UIManager.js';
-import {Toast} form './ui/Toast.js';
-import {NetworkError} form './utils/error.js';
+import {api} from './services/api.js';
+import {userManager} from './models/userManager.js';
+import {UIManager} from './ui/UIManager.js';
+import {Toast} from './ui/Toast.js';
+import {NetworkError} from './utils/error.js';
 async function initapp(){
   const userManager=new userManager();
   const ui=new UIManager(userManager);
@@ -24,5 +24,6 @@ async function initapp(){
   ui.render();
 }
 initApp();
+
 
 
