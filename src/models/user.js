@@ -1,5 +1,5 @@
 import {ValidationError} from '../utils/error.js'
-export class user{
+export class User{
     #id;
     #name;
     #email;
@@ -13,11 +13,11 @@ export class user{
     }
     validate() {
         if(this.#name.length<2){throw new ValidationError("Your name should be longer than two characteres");}
-        if(!this.#email.includes('@') || this.#email.includes('.')){ throw new ValidationError("Your email might not have '@' or '.'");}
-        if(this.#age<1 && this.#age>120){ throw new ValidationError("Your age should be between 1 and 120");}
+        if(!this.#email.includes('@') || !this.#email.includes('.')){ throw new ValidationError("Your email might not have '@' or '.'");}
+        if(this.#age<1 || this.#age>120){ throw new ValidationError("Your age should be between 1 and 120");}
         if(parseInt(this.#id)<0){ throw new ValidationError("Your id can't negative");}
  }
-    update(){
+    update(data){
         if(data.name!==undefined){this.#name=data.name};
         if(data.email!==undefined){this.#email=data.email};
         if(data.age!==undefined){this.#age=data.age};
