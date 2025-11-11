@@ -6,16 +6,17 @@ export class AppError extends Error {
 }
 export class ValidationError extends AppError {
   constructor(message){
-    super(message,"Validation");
+    super(message,"VALIDATION");
   }
 }
 export class NotFoundError extends AppError { 
   constructor(message){
-    super(message,"Not_Found");
+    super(message,"NOT_FOUND");
   }
 }
 export class NetworkError extends AppError { 
     constructor(message){
-    super(message,"Network_Error");  
+    super(message,"NETWORK_ERROR");  
     }
 }
+
