@@ -1,10 +1,10 @@
 import {api} form './services/api.js';
-import {UserManager} form './models/UserManager.js';
+import {userManager} form './models/userManager.js';
 import {UIManager} form './ui/UIManager.js';
-import {toast} form './ui/Toast.js';
+import {Toast} form './ui/Toast.js';
 import {NetworkError} form './utils/error.js';
 async function initapp(){
-  const userManager=new UserManager();
+  const userManager=new userManager();
   const ui=new UIManager(userManager);
   if(userManager.getAll().length===0){
     try{
@@ -24,4 +24,5 @@ async function initapp(){
   ui.render();
 }
 initApp();
+
 
